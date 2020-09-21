@@ -1,3 +1,6 @@
+deploy-staging.sh
+deploy-production.sh
+
 # Logs
 logs
 *.log
