@@ -1,0 +1,693 @@
+{
+  "timestamp": "16:43:59 GMT+0800 (Hong Kong Standard Time)",
+  "data": {
+    "version": 2,
+    "tables": [
+      {
+        "table": {
+          "schema": "public",
+          "name": "addresses"
+        },
+        "object_relationships": [
+          {
+            "name": "district",
+            "using": {
+              "foreign_key_constraint_on": "district_id"
+            }
+          }
+        ],
+        "select_permissions": [
+          {
+            "role": "user",
+            "permission": {
+              "columns": [
+                "address_type",
+                "addressable_id",
+                "addressable_type",
+                "building",
+                "created_at",
+                "district_id",
+                "flat",
+                "id",
+                "street",
+                "updated_at"
+              ],
+              "filter": {
+                "_and": [
+                  {
+                    "addressable_type": {
+                      "_eq": "User"
+                    }
+                  },
+                  {
+                    "addressable_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  },
+                  {
+                    "deleted_at": {
+                      "_is_null": true
+                    }
+                  }
+                ]
+              },
+              "limit": 25
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "cancellation_reasons"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "contacts"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "countries"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "crossroads_transports"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "deliveries"
+        },
+        "object_relationships": [
+          {
+            "name": "contact",
+            "using": {
+              "foreign_key_constraint_on": "contact_id"
+            }
+          },
+          {
+            "name": "offer",
+            "using": {
+              "foreign_key_constraint_on": "offer_id"
+            }
+          },
+          {
+            "name": "schedule",
+            "using": {
+              "foreign_key_constraint_on": "schedule_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "districts"
+        },
+        "object_relationships": [
+          {
+            "name": "territory",
+            "using": {
+              "foreign_key_constraint_on": "territory_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "donor_conditions"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "gogovan_transports"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "goodcity_settings"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "holidays"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "images"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "items"
+        },
+        "object_relationships": [
+          {
+            "name": "donor_condition",
+            "using": {
+              "foreign_key_constraint_on": "donor_condition_id"
+            }
+          },
+          {
+            "name": "offer",
+            "using": {
+              "foreign_key_constraint_on": "offer_id"
+            }
+          },
+          {
+            "name": "package_type",
+            "using": {
+              "foreign_key_constraint_on": "package_type_id"
+            }
+          }
+        ],
+        "array_relationships": [
+          {
+            "name": "packages",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "item_id",
+                "table": {
+                  "schema": "public",
+                  "name": "packages"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "locations"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "offers"
+        },
+        "object_relationships": [
+          {
+            "name": "cancellation_reason",
+            "using": {
+              "foreign_key_constraint_on": "cancellation_reason_id"
+            }
+          },
+          {
+            "name": "closed_by",
+            "using": {
+              "foreign_key_constraint_on": "closed_by_id"
+            }
+          },
+          {
+            "name": "created_by",
+            "using": {
+              "foreign_key_constraint_on": "created_by_id"
+            }
+          },
+          {
+            "name": "crossroads_transport",
+            "using": {
+              "foreign_key_constraint_on": "crossroads_transport_id"
+            }
+          },
+          {
+            "name": "gogovan_transport",
+            "using": {
+              "foreign_key_constraint_on": "gogovan_transport_id"
+            }
+          },
+          {
+            "name": "received_by",
+            "using": {
+              "foreign_key_constraint_on": "received_by_id"
+            }
+          },
+          {
+            "name": "reviewed_by",
+            "using": {
+              "foreign_key_constraint_on": "reviewed_by_id"
+            }
+          }
+        ],
+        "array_relationships": [
+          {
+            "name": "deliveries",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "offer_id",
+                "table": {
+                  "schema": "public",
+                  "name": "deliveries"
+                }
+              }
+            }
+          },
+          {
+            "name": "items",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "offer_id",
+                "table": {
+                  "schema": "public",
+                  "name": "items"
+                }
+              }
+            }
+          },
+          {
+            "name": "offers_packages",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "offer_id",
+                "table": {
+                  "schema": "public",
+                  "name": "offers_packages"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "offers_packages"
+        },
+        "object_relationships": [
+          {
+            "name": "offer",
+            "using": {
+              "foreign_key_constraint_on": "offer_id"
+            }
+          },
+          {
+            "name": "package",
+            "using": {
+              "foreign_key_constraint_on": "package_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "organisation_types"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "organisations"
+        },
+        "object_relationships": [
+          {
+            "name": "country",
+            "using": {
+              "foreign_key_constraint_on": "country_id"
+            }
+          },
+          {
+            "name": "district",
+            "using": {
+              "foreign_key_constraint_on": "district_id"
+            }
+          },
+          {
+            "name": "organisation_type",
+            "using": {
+              "foreign_key_constraint_on": "organisation_type_id"
+            }
+          }
+        ],
+        "array_relationships": [
+          {
+            "name": "organisations_users",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "organisation_id",
+                "table": {
+                  "schema": "public",
+                  "name": "organisations_users"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "organisations_users"
+        },
+        "object_relationships": [
+          {
+            "name": "organisation",
+            "using": {
+              "foreign_key_constraint_on": "organisation_id"
+            }
+          },
+          {
+            "name": "user",
+            "using": {
+              "foreign_key_constraint_on": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "package_categories"
+        },
+        "object_relationships": [
+          {
+            "name": "parent",
+            "using": {
+              "foreign_key_constraint_on": "parent_id"
+            }
+          }
+        ],
+        "array_relationships": [
+          {
+            "name": "children",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "parent_id",
+                "table": {
+                  "schema": "public",
+                  "name": "package_categories"
+                }
+              }
+            }
+          },
+          {
+            "name": "package_categories_package_types",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "package_category_id",
+                "table": {
+                  "schema": "public",
+                  "name": "package_categories_package_types"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "package_categories_package_types"
+        },
+        "object_relationships": [
+          {
+            "name": "package_category",
+            "using": {
+              "foreign_key_constraint_on": "package_category_id"
+            }
+          },
+          {
+            "name": "package_type",
+            "using": {
+              "foreign_key_constraint_on": "package_type_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "package_sets"
+        },
+        "object_relationships": [
+          {
+            "name": "package_type",
+            "using": {
+              "foreign_key_constraint_on": "package_type_id"
+            }
+          }
+        ],
+        "array_relationships": [
+          {
+            "name": "packages",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "package_set_id",
+                "table": {
+                  "schema": "public",
+                  "name": "packages"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "package_types"
+        },
+        "object_relationships": [
+          {
+            "name": "location",
+            "using": {
+              "foreign_key_constraint_on": "location_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "packages"
+        },
+        "object_relationships": [
+          {
+            "name": "donor_condition",
+            "using": {
+              "foreign_key_constraint_on": "donor_condition_id"
+            }
+          },
+          {
+            "name": "item",
+            "using": {
+              "foreign_key_constraint_on": "item_id"
+            }
+          },
+          {
+            "name": "package_set",
+            "using": {
+              "foreign_key_constraint_on": "package_set_id"
+            }
+          },
+          {
+            "name": "package_type",
+            "using": {
+              "foreign_key_constraint_on": "package_type_id"
+            }
+          },
+          {
+            "name": "restriction",
+            "using": {
+              "foreign_key_constraint_on": "restriction_id"
+            }
+          },
+          {
+            "name": "storage_type",
+            "using": {
+              "foreign_key_constraint_on": "storage_type_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "permissions"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "printers"
+        },
+        "object_relationships": [
+          {
+            "name": "location",
+            "using": {
+              "foreign_key_constraint_on": "location_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "printers_users"
+        },
+        "object_relationships": [
+          {
+            "name": "printer",
+            "using": {
+              "manual_configuration": {
+                "remote_table": {
+                  "schema": "public",
+                  "name": "printers"
+                },
+                "column_mapping": {
+                  "printer_id": "id"
+                }
+              }
+            }
+          },
+          {
+            "name": "user",
+            "using": {
+              "manual_configuration": {
+                "remote_table": {
+                  "schema": "public",
+                  "name": "users"
+                },
+                "column_mapping": {
+                  "user_id": "id"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "restrictions"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "role_permissions"
+        },
+        "object_relationships": [
+          {
+            "name": "permission",
+            "using": {
+              "foreign_key_constraint_on": "permission_id"
+            }
+          },
+          {
+            "name": "role",
+            "using": {
+              "foreign_key_constraint_on": "role_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "roles"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "schedules"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "storage_types"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "territories"
+        }
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "user_roles"
+        },
+        "object_relationships": [
+          {
+            "name": "role",
+            "using": {
+              "foreign_key_constraint_on": "role_id"
+            }
+          },
+          {
+            "name": "user",
+            "using": {
+              "foreign_key_constraint_on": "user_id"
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "users"
+        },
+        "object_relationships": [
+          {
+            "name": "image",
+            "using": {
+              "foreign_key_constraint_on": "image_id"
+            }
+          }
+        ],
+        "array_relationships": [
+          {
+            "name": "organisations_users",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "user_id",
+                "table": {
+                  "schema": "public",
+                  "name": "organisations_users"
+                }
+              }
+            }
+          },
+          {
+            "name": "user_roles",
+            "using": {
+              "foreign_key_constraint_on": {
+                "column": "user_id",
+                "table": {
+                  "schema": "public",
+                  "name": "user_roles"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "table": {
+          "schema": "public",
+          "name": "valuation_matrices"
+        }
+      }
+    ]
+  }
+}

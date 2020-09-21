@@ -1,8 +1,8 @@
 const { assertSchemaExists }  = require("../assertions");
-const { getAllRelationships } = require("../hasura");
+const { getAllRelationships } = require('../hasura');
 
-describe("CrossroadsTransports schema", () => {
-  const TABLE_NAME = 'crossroads_transports'
+describe("Schedule schema", () => {
+  const TABLE_NAME = 'schedules'
 
   it('exists on hasura', () => {
     assertSchemaExists(TABLE_NAME)

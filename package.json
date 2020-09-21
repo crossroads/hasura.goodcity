@@ -4,7 +4,8 @@
   "description": "Deployment and testing of the Hasura GraphQL Server for Goodcity",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/**/*.test.js --file tests/setup.js --file tests/teardown.js"
+    "test": "mocha tests/*.test.js tests/**/*.test.js --file tests/setup.js --file tests/teardown.js",
+    "test:snapshot": "mocha tests/*.test.js tests/**/*.test.js --file tests/setup.js --file tests/teardown.js --snapshot"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "chai": "^4.2.0",
+    "chalk": "^4.1.0",
     "lodash": "^4.17.20",
     "mocha": "^8.1.3"
   }

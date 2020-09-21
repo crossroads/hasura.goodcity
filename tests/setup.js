@@ -1,6 +1,20 @@
-const _           = require('lodash');
-const { expect }  = require('chai');
-const hasura      = require('./hasura');
+const _                   = require('lodash');
+const hasura              = require('./hasura');
+const chai                = require('chai');
+const { createSnapshot }  = require('./assertions');
+
+// ----------------
+//  Chai Setup
+// ----------------
+
+before(() => {
+  // Chai setup
+  global.expect = chai.expect;
+})
+
+// ----------------
+//  Preload Hasura Config
+// ----------------
 
 before(async () => {
   _.each([
@@ -14,8 +28,16 @@ before(async () => {
     process.env.HASURA_GRAPHQL_HOST,
     process.env.HASURA_GRAPHQL_ADMIN_SECRET
   );
+
+  expect(hasura.meta, "Hasura metadata must be loaded").to.exist
 })
 
+// ----------------
+//  Update snapshot
+// ----------------
+
 before(() => {
-  expect(hasura.meta, "Hasura metadata must be loaded").to.exist
+  if (_.find(process.argv, (arg) => arg === '--snapshot')) {
+    createSnapshot();
+  }
 })
