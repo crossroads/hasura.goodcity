@@ -21,7 +21,7 @@ workflows:
       - test
     triggers:
       - schedule:
-          cron: "0 0 12 1/1 * ? *"
+          cron: "0 0 9 * * ?" # Every day at 9am
           filters:
             branches:
               only:
