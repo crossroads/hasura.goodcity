@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  node: 'circleci/node@4.0.0'
+jobs:
+  test:
+    executor:
+      name: node/default
+      tag: '14.10.1'
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: npm run test 
+workflows:
+  version: 2
+  configuration_check:
+    jobs:
+      - test
+  nightly_configuration_check:
+    jobs:
+      - test
+    triggers:
+      - schedule:
+          cron: "30 9 * * 1-5" # Every weekday at 9:30am
+          filters:
+            branches:
+              only:
+                - master
