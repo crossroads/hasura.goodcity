@@ -42,3 +42,13 @@ npm test:snapshot
 ```
 
 **important**: Please make sure to commit the new snapshot file after updating it.
+
+## Outputting the configuration
+
+The hasura configuration file can be printed from the local snapshot through:
+
+```bash
+npm run hasura:config
+```
+
+That can be useful if you wish to upload the configuration to a new instance of hasura

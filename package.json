@@ -4,8 +4,9 @@
   "description": "Deployment and testing of the Hasura GraphQL Server for Goodcity",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/*.test.js tests/**/*.test.js --file tests/setup.js --file tests/teardown.js",
-    "test:snapshot": "mocha tests/*.test.js tests/**/*.test.js --file tests/setup.js --file tests/teardown.js --snapshot"
+    "test": "mocha specs/*.test.js specs/**/*.test.js --file specs/setup.js --file specs/teardown.js",
+    "test:snapshot": "mocha specs/*.test.js specs/**/*.test.js --file specs/setup.js --file specs/teardown.js --snapshot",
+    "hasura:config": "cat ./specs/snapshots/hasura_config.snapshot.json"
   },
   "repository": {
     "type": "git",

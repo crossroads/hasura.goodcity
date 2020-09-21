@@ -9,7 +9,12 @@ const {
   getRelationship
 } = hasura;
 
-const SNAPSHOT_PATH = path.join(__dirname, 'snapshots/hasura_meta.snapshot.json');
+const SNAPSHOT_PATH = path.join(__dirname, 'snapshots/hasura_config.snapshot.json');
+const SNAPSHOT_META_PATH = path.join(__dirname, 'snapshots/hasura_config.snapshot.meta.json');
+
+function persist(file, json) {
+  fs.writeFileSync(file, JSON.stringify(json, null, 2) + "\n");
+}
 
 /**
  *
@@ -42,10 +47,10 @@ function createSnapshot() {
 
   console.log(chalk.cyanBright(`Generating new shapshot ${SNAPSHOT_PATH}`))
 
-  fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify({
-    timestamp: new Date().toTimeString(),
-    data: hasura.meta
-  }, null, 2));
+  persist(SNAPSHOT_PATH, hasura.meta);
+  persist(SNAPSHOT_META_PATH, {
+    snapshotRecordedAt: new Date().toTimeString(),
+  })
 }
 
 /**
@@ -54,7 +59,7 @@ function createSnapshot() {
  */
 function assertSnapshotIntegrity() {
   const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH).toString());
-  expect(snapshot.data, 'Cloud configuration should match snapshot').to.deep.equal(hasura.meta);
+  expect(snapshot, 'Cloud configuration should match snapshot').to.deep.equal(hasura.meta);
 }
 
 
