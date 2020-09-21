@@ -13,4 +13,4 @@ docker run -d -p 8080:8080 \
   -e HASURA_GRAPHQL_ENABLE_CONSOLE=true \
   -e HASURA_GRAPHQL_JWT_SECRET=`node hasura_jwt.js` \
   -e HASURA_GRAPHQL_ADMIN_SECRET=$HASURA_GRAPHQL_ADMIN_SECRET \
-  hasura/graphql-engine:`cat hasura_version.txt`
+  hasura/graphql-engine:`cat ../hasura_version.txt`
