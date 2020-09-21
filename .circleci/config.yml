@@ -5,7 +5,7 @@ jobs:
   test:
     executor:
       name: node/default
-      tag: '14'
+      tag: '14.10.1'
     steps:
       - checkout
       - node/install-packages
@@ -17,6 +17,8 @@ workflows:
     jobs:
       - test
   nightly_configuration_check:
+    jobs:
+      - test
     triggers:
       - schedule:
           cron: "0 0 12 1/1 * ? *"
@@ -24,5 +26,3 @@ workflows:
             branches:
               only:
                 - master
-    jobs:
-      - test
