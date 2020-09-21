@@ -13,6 +13,17 @@ jobs:
           command: npm run test
 workflows:
   version: 2
-  test_hasura_configuration:
+  commit:
+    test_hasura_configuration:
+      jobs:
+        - test
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 12 1/1 * ? *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - test
