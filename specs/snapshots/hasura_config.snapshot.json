@@ -16,6 +16,200 @@
       ],
       "select_permissions": [
         {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "address_type",
+              "addressable_id",
+              "addressable_type",
+              "building",
+              "created_at",
+              "district_id",
+              "flat",
+              "id",
+              "street",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "addressable_type": {
+                    "_eq": "User"
+                  }
+                },
+                {
+                  "addressable_id": {
+                    "_eq": "X-Hasura-User-Id"
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "address_type",
+              "addressable_id",
+              "addressable_type",
+              "building",
+              "created_at",
+              "district_id",
+              "flat",
+              "id",
+              "street",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "addressable_type": {
+                    "_eq": "User"
+                  }
+                },
+                {
+                  "addressable_id": {
+                    "_eq": "X-Hasura-User-Id"
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "address_type",
+              "addressable_id",
+              "addressable_type",
+              "building",
+              "created_at",
+              "district_id",
+              "flat",
+              "id",
+              "street",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "address_type",
+              "addressable_id",
+              "addressable_type",
+              "building",
+              "created_at",
+              "district_id",
+              "flat",
+              "id",
+              "street",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "addressable_type": {
+                    "_eq": "User"
+                  }
+                },
+                {
+                  "addressable_id": {
+                    "_eq": "X-Hasura-User-Id"
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "address_type",
+              "addressable_id",
+              "addressable_type",
+              "building",
+              "created_at",
+              "district_id",
+              "flat",
+              "id",
+              "street",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "addressable_type": {
+                    "_eq": "User"
+                  }
+                },
+                {
+                  "addressable_id": {
+                    "_eq": "X-Hasura-User-Id"
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "address_type",
+              "addressable_id",
+              "addressable_type",
+              "building",
+              "created_at",
+              "district_id",
+              "flat",
+              "id",
+              "street",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
           "role": "user",
           "permission": {
             "columns": [
@@ -58,7 +252,114 @@
       "table": {
         "schema": "public",
         "name": "cancellation_reasons"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_offer",
+              "visible_to_order"
+            ],
+            "filter": {}
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_offer",
+              "visible_to_order"
+            ],
+            "filter": {}
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_offer",
+              "visible_to_order"
+            ],
+            "filter": {}
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_offer",
+              "visible_to_order"
+            ],
+            "filter": {}
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_offer",
+              "visible_to_order"
+            ],
+            "filter": {}
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_offer",
+              "visible_to_order"
+            ],
+            "filter": {}
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_offer",
+              "visible_to_order"
+            ],
+            "filter": {}
+          }
+        }
+      ]
     },
     {
       "table": {
@@ -76,7 +377,145 @@
       "table": {
         "schema": "public",
         "name": "crossroads_transports"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "is_van_allowed",
+              "truck_size",
+              "cost",
+              "id",
+              "created_at",
+              "updated_at",
+              "name_en",
+              "name_zh_tw"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "is_van_allowed",
+              "truck_size",
+              "cost",
+              "id",
+              "created_at",
+              "updated_at",
+              "name_en",
+              "name_zh_tw"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "is_van_allowed",
+              "truck_size",
+              "cost",
+              "id",
+              "created_at",
+              "updated_at",
+              "name_en",
+              "name_zh_tw"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "is_van_allowed",
+              "truck_size",
+              "cost",
+              "id",
+              "created_at",
+              "updated_at",
+              "name_en",
+              "name_zh_tw"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "is_van_allowed",
+              "truck_size",
+              "cost",
+              "id",
+              "created_at",
+              "updated_at",
+              "name_en",
+              "name_zh_tw"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "is_van_allowed",
+              "truck_size",
+              "cost",
+              "id",
+              "created_at",
+              "updated_at",
+              "name_en",
+              "name_zh_tw"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "is_van_allowed",
+              "truck_size",
+              "cost",
+              "id",
+              "created_at",
+              "updated_at",
+              "name_en",
+              "name_zh_tw"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "is_van_allowed",
+              "truck_size",
+              "cost",
+              "id",
+              "created_at",
+              "updated_at",
+              "name_en",
+              "name_zh_tw"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        }
+      ]
     },
     {
       "table": {
@@ -102,6 +541,224 @@
             "foreign_key_constraint_on": "schedule_id"
           }
         }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "contact_id",
+              "created_at",
+              "delivery_type",
+              "finish",
+              "gogovan_order_id",
+              "id",
+              "offer_id",
+              "schedule_id",
+              "start",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "offer": {
+                    "created_by_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "contact_id",
+              "created_at",
+              "delivery_type",
+              "finish",
+              "gogovan_order_id",
+              "id",
+              "offer_id",
+              "schedule_id",
+              "start",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "offer": {
+                    "created_by_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "contact_id",
+              "created_at",
+              "delivery_type",
+              "finish",
+              "gogovan_order_id",
+              "id",
+              "offer_id",
+              "schedule_id",
+              "start",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "contact_id",
+              "created_at",
+              "delivery_type",
+              "finish",
+              "gogovan_order_id",
+              "id",
+              "offer_id",
+              "schedule_id",
+              "start",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "offer": {
+                    "created_by_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "contact_id",
+              "created_at",
+              "delivery_type",
+              "finish",
+              "gogovan_order_id",
+              "id",
+              "offer_id",
+              "schedule_id",
+              "start",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "offer": {
+                    "created_by_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "contact_id",
+              "created_at",
+              "delivery_type",
+              "finish",
+              "gogovan_order_id",
+              "id",
+              "offer_id",
+              "schedule_id",
+              "start",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "contact_id",
+              "created_at",
+              "delivery_type",
+              "finish",
+              "gogovan_order_id",
+              "id",
+              "offer_id",
+              "schedule_id",
+              "start",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "offer": {
+                    "created_by_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  }
+                },
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        }
       ]
     },
     {
@@ -116,37 +773,780 @@
             "foreign_key_constraint_on": "territory_id"
           }
         }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "territory_id",
+              "created_at",
+              "updated_at",
+              "latitude",
+              "longitude"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "territory_id",
+              "created_at",
+              "updated_at",
+              "latitude",
+              "longitude"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "territory_id",
+              "created_at",
+              "updated_at",
+              "latitude",
+              "longitude"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "territory_id",
+              "created_at",
+              "updated_at",
+              "latitude",
+              "longitude"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "territory_id",
+              "created_at",
+              "updated_at",
+              "latitude",
+              "longitude"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "territory_id",
+              "created_at",
+              "updated_at",
+              "latitude",
+              "longitude"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "territory_id",
+              "created_at",
+              "updated_at",
+              "latitude",
+              "longitude"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "territory_id",
+              "created_at",
+              "updated_at",
+              "latitude",
+              "longitude"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        }
       ]
     },
     {
       "table": {
         "schema": "public",
         "name": "donor_conditions"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_donor"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_donor"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_donor"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_donor"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_donor"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_donor"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_donor"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_to_donor"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        }
+      ]
     },
     {
       "table": {
         "schema": "public",
         "name": "gogovan_transports"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "disabled"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "disabled"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "disabled"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "disabled"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "disabled"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "disabled"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "disabled"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "created_at",
+              "updated_at",
+              "disabled"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        }
+      ]
     },
     {
       "table": {
         "schema": "public",
         "name": "goodcity_settings"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "key",
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "key",
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "id",
+              "key",
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "key",
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "key",
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "key",
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "key",
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "key",
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        }
+      ]
     },
     {
       "table": {
         "schema": "public",
         "name": "holidays"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "holiday",
+              "year",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "holiday",
+              "year",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "holiday",
+              "year",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "holiday",
+              "year",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "holiday",
+              "year",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "holiday",
+              "year",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "holiday",
+              "year",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        }
+      ]
     },
     {
       "table": {
         "schema": "public",
         "name": "images"
-      }
+      },
+      "array_relationships": [
+        {
+          "name": "users",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "image_id",
+              "table": {
+                "schema": "public",
+                "name": "users"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "angle",
+              "cloudinary_id",
+              "created_at",
+              "favourite",
+              "id",
+              "imageable_id",
+              "imageable_type",
+              "item_id",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "angle",
+              "cloudinary_id",
+              "created_at",
+              "favourite",
+              "id",
+              "imageable_id",
+              "imageable_type",
+              "item_id",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "angle",
+              "cloudinary_id",
+              "created_at",
+              "favourite",
+              "id",
+              "imageable_id",
+              "imageable_type",
+              "item_id",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "angle",
+              "cloudinary_id",
+              "created_at",
+              "favourite",
+              "id",
+              "imageable_id",
+              "imageable_type",
+              "item_id",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "angle",
+              "cloudinary_id",
+              "created_at",
+              "favourite",
+              "id",
+              "imageable_id",
+              "imageable_type",
+              "item_id",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "angle",
+              "cloudinary_id",
+              "created_at",
+              "favourite",
+              "id",
+              "imageable_id",
+              "imageable_type",
+              "item_id",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        }
+      ]
     },
     {
       "table": {
@@ -186,13 +1586,304 @@
             }
           }
         }
+      ],
+      "computed_fields": [
+        {
+          "name": "images",
+          "definition": {
+            "function": {
+              "schema": "public",
+              "name": "item_images"
+            }
+          },
+          "comment": ""
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "created_at",
+              "donor_condition_id",
+              "donor_description",
+              "id",
+              "offer_id",
+              "package_type_id",
+              "reject_reason",
+              "rejection_comments",
+              "rejection_reason_id",
+              "state",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25,
+            "allow_aggregations": true
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "created_at",
+              "donor_condition_id",
+              "donor_description",
+              "id",
+              "offer_id",
+              "package_type_id",
+              "reject_reason",
+              "rejection_comments",
+              "rejection_reason_id",
+              "state",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25,
+            "allow_aggregations": true
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "created_at",
+              "donor_condition_id",
+              "donor_description",
+              "id",
+              "offer_id",
+              "package_type_id",
+              "reject_reason",
+              "rejection_comments",
+              "rejection_reason_id",
+              "state",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25,
+            "allow_aggregations": true
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "created_at",
+              "donor_condition_id",
+              "donor_description",
+              "id",
+              "offer_id",
+              "package_type_id",
+              "reject_reason",
+              "rejection_comments",
+              "rejection_reason_id",
+              "state",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25,
+            "allow_aggregations": true
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "created_at",
+              "donor_condition_id",
+              "donor_description",
+              "id",
+              "offer_id",
+              "package_type_id",
+              "reject_reason",
+              "rejection_comments",
+              "rejection_reason_id",
+              "state",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25,
+            "allow_aggregations": true
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "created_at",
+              "donor_condition_id",
+              "donor_description",
+              "id",
+              "offer_id",
+              "package_type_id",
+              "reject_reason",
+              "rejection_comments",
+              "rejection_reason_id",
+              "state",
+              "updated_at"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25,
+            "allow_aggregations": true
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "created_at",
+              "donor_condition_id",
+              "donor_description",
+              "id",
+              "offer_id",
+              "package_type_id",
+              "reject_reason",
+              "rejection_comments",
+              "rejection_reason_id",
+              "state",
+              "updated_at"
+            ],
+            "filter": {
+              "_and": [
+                {
+                  "deleted_at": {
+                    "_is_null": true
+                  }
+                },
+                {
+                  "offer": {
+                    "created_by_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  }
+                }
+              ]
+            },
+            "limit": 25
+          }
+        }
       ]
     },
     {
       "table": {
         "schema": "public",
         "name": "locations"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "building",
+              "area",
+              "stockit_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "building",
+              "area",
+              "stockit_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "building",
+              "area",
+              "stockit_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "building",
+              "area",
+              "stockit_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "building",
+              "area",
+              "stockit_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "building",
+              "area",
+              "stockit_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 200
+          }
+        }
+      ]
     },
     {
       "table": {
@@ -280,6 +1971,306 @@
             }
           }
         }
+      ],
+      "computed_fields": [
+        {
+          "name": "images",
+          "definition": {
+            "function": {
+              "schema": "public",
+              "name": "offer_images"
+            }
+          },
+          "comment": ""
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "parking",
+              "saleable",
+              "stairs",
+              "cancellation_reason_id",
+              "closed_by_id",
+              "company_id",
+              "created_by_id",
+              "crossroads_transport_id",
+              "gogovan_transport_id",
+              "id",
+              "received_by_id",
+              "reviewed_by_id",
+              "notes",
+              "cancelled_at",
+              "created_at",
+              "deleted_at",
+              "inactive_at",
+              "received_at",
+              "review_completed_at",
+              "reviewed_at",
+              "start_receiving_at",
+              "submitted_at",
+              "updated_at",
+              "cancel_reason",
+              "delivered_by",
+              "estimated_size",
+              "language",
+              "origin",
+              "state"
+            ],
+            "filter": {
+              "created_by_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "parking",
+              "saleable",
+              "stairs",
+              "cancellation_reason_id",
+              "closed_by_id",
+              "company_id",
+              "created_by_id",
+              "crossroads_transport_id",
+              "gogovan_transport_id",
+              "id",
+              "received_by_id",
+              "reviewed_by_id",
+              "notes",
+              "cancelled_at",
+              "created_at",
+              "deleted_at",
+              "inactive_at",
+              "received_at",
+              "review_completed_at",
+              "reviewed_at",
+              "start_receiving_at",
+              "submitted_at",
+              "updated_at",
+              "cancel_reason",
+              "delivered_by",
+              "estimated_size",
+              "language",
+              "origin",
+              "state"
+            ],
+            "filter": {
+              "created_by_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "language",
+              "state",
+              "origin",
+              "stairs",
+              "parking",
+              "estimated_size",
+              "notes",
+              "created_by_id",
+              "created_at",
+              "updated_at",
+              "deleted_at",
+              "submitted_at",
+              "reviewed_by_id",
+              "reviewed_at",
+              "gogovan_transport_id",
+              "crossroads_transport_id",
+              "review_completed_at",
+              "received_at",
+              "delivered_by",
+              "closed_by_id",
+              "cancelled_at",
+              "received_by_id",
+              "start_receiving_at",
+              "cancellation_reason_id",
+              "cancel_reason",
+              "inactive_at",
+              "saleable",
+              "company_id"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "parking",
+              "saleable",
+              "stairs",
+              "cancellation_reason_id",
+              "closed_by_id",
+              "company_id",
+              "created_by_id",
+              "crossroads_transport_id",
+              "gogovan_transport_id",
+              "id",
+              "received_by_id",
+              "reviewed_by_id",
+              "notes",
+              "cancelled_at",
+              "created_at",
+              "deleted_at",
+              "inactive_at",
+              "received_at",
+              "review_completed_at",
+              "reviewed_at",
+              "start_receiving_at",
+              "submitted_at",
+              "updated_at",
+              "cancel_reason",
+              "delivered_by",
+              "estimated_size",
+              "language",
+              "origin",
+              "state"
+            ],
+            "filter": {
+              "created_by_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "parking",
+              "saleable",
+              "stairs",
+              "cancellation_reason_id",
+              "closed_by_id",
+              "company_id",
+              "created_by_id",
+              "crossroads_transport_id",
+              "gogovan_transport_id",
+              "id",
+              "received_by_id",
+              "reviewed_by_id",
+              "notes",
+              "cancelled_at",
+              "created_at",
+              "deleted_at",
+              "inactive_at",
+              "received_at",
+              "review_completed_at",
+              "reviewed_at",
+              "start_receiving_at",
+              "submitted_at",
+              "updated_at",
+              "cancel_reason",
+              "delivered_by",
+              "estimated_size",
+              "language",
+              "origin",
+              "state"
+            ],
+            "filter": {
+              "created_by_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "language",
+              "state",
+              "origin",
+              "stairs",
+              "parking",
+              "estimated_size",
+              "notes",
+              "created_by_id",
+              "created_at",
+              "updated_at",
+              "deleted_at",
+              "submitted_at",
+              "reviewed_by_id",
+              "reviewed_at",
+              "gogovan_transport_id",
+              "crossroads_transport_id",
+              "review_completed_at",
+              "received_at",
+              "delivered_by",
+              "closed_by_id",
+              "cancelled_at",
+              "received_by_id",
+              "start_receiving_at",
+              "cancellation_reason_id",
+              "cancel_reason",
+              "inactive_at",
+              "saleable",
+              "company_id"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "parking",
+              "saleable",
+              "stairs",
+              "cancellation_reason_id",
+              "closed_by_id",
+              "company_id",
+              "created_by_id",
+              "crossroads_transport_id",
+              "gogovan_transport_id",
+              "id",
+              "received_by_id",
+              "reviewed_by_id",
+              "notes",
+              "cancelled_at",
+              "created_at",
+              "deleted_at",
+              "inactive_at",
+              "received_at",
+              "review_completed_at",
+              "reviewed_at",
+              "start_receiving_at",
+              "submitted_at",
+              "updated_at",
+              "cancel_reason",
+              "delivered_by",
+              "estimated_size",
+              "language",
+              "origin",
+              "state"
+            ],
+            "filter": {
+              "created_by_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        }
       ]
     },
     {
@@ -306,7 +2297,137 @@
       "table": {
         "schema": "public",
         "name": "organisation_types"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "category_en",
+              "category_zh_tw",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "category_en",
+              "category_zh_tw",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "category_en",
+              "category_zh_tw",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "category_en",
+              "category_zh_tw",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "category_en",
+              "category_zh_tw",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "category_en",
+              "category_zh_tw",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "category_en",
+              "category_zh_tw",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "category_en",
+              "category_zh_tw",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        }
+      ]
     },
     {
       "table": {
@@ -346,6 +2467,184 @@
             }
           }
         }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "organisation_type_id",
+              "description_en",
+              "description_zh_tw",
+              "registration",
+              "website",
+              "country_id",
+              "district_id",
+              "created_at",
+              "updated_at",
+              "gih3_id"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "organisation_type_id",
+              "description_en",
+              "description_zh_tw",
+              "registration",
+              "website",
+              "country_id",
+              "district_id",
+              "created_at",
+              "updated_at",
+              "gih3_id"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "organisation_type_id",
+              "description_en",
+              "description_zh_tw",
+              "registration",
+              "website",
+              "country_id",
+              "district_id",
+              "created_at",
+              "updated_at",
+              "gih3_id"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "organisation_type_id",
+              "description_en",
+              "description_zh_tw",
+              "registration",
+              "website",
+              "country_id",
+              "district_id",
+              "created_at",
+              "updated_at",
+              "gih3_id"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "organisation_type_id",
+              "description_en",
+              "description_zh_tw",
+              "registration",
+              "website",
+              "country_id",
+              "district_id",
+              "created_at",
+              "updated_at",
+              "gih3_id"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "organisation_type_id",
+              "description_en",
+              "description_zh_tw",
+              "registration",
+              "website",
+              "country_id",
+              "district_id",
+              "created_at",
+              "updated_at",
+              "gih3_id"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "organisation_type_id",
+              "description_en",
+              "description_zh_tw",
+              "registration",
+              "website",
+              "country_id",
+              "district_id",
+              "created_at",
+              "updated_at",
+              "gih3_id"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "organisation_type_id",
+              "description_en",
+              "description_zh_tw",
+              "registration",
+              "website",
+              "country_id",
+              "district_id",
+              "created_at",
+              "updated_at",
+              "gih3_id"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        }
       ]
     },
     {
@@ -364,6 +2663,147 @@
           "name": "user",
           "using": {
             "foreign_key_constraint_on": "user_id"
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "organisation_id",
+              "user_id",
+              "position",
+              "created_at",
+              "updated_at",
+              "preferred_contact_number",
+              "status"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "organisation_id",
+              "user_id",
+              "created_at",
+              "updated_at",
+              "position",
+              "preferred_contact_number",
+              "status"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "organisation_id",
+              "user_id",
+              "created_at",
+              "updated_at",
+              "position",
+              "preferred_contact_number",
+              "status"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "organisation_id",
+              "user_id",
+              "created_at",
+              "updated_at",
+              "position",
+              "preferred_contact_number",
+              "status"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "organisation_id",
+              "user_id",
+              "created_at",
+              "updated_at",
+              "position",
+              "preferred_contact_number",
+              "status"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "organisation_id",
+              "user_id",
+              "created_at",
+              "updated_at",
+              "position",
+              "preferred_contact_number",
+              "status"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "organisation_id",
+              "user_id",
+              "created_at",
+              "updated_at",
+              "position",
+              "preferred_contact_number",
+              "status"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
           }
         }
       ]
@@ -404,6 +2844,128 @@
                 "name": "package_categories_package_types"
               }
             }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "parent_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "parent_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "parent_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "parent_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "parent_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "parent_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "parent_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "name_en",
+              "name_zh_tw",
+              "parent_id",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 50
           }
         }
       ]
@@ -454,6 +3016,92 @@
             }
           }
         }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "package_type_id",
+              "description",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "package_type_id",
+              "description",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "package_type_id",
+              "description",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "package_type_id",
+              "description",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "package_type_id",
+              "description",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "package_type_id",
+              "description",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        }
       ]
     },
     {
@@ -466,6 +3114,232 @@
           "name": "location",
           "using": {
             "foreign_key_constraint_on": "location_id"
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "code",
+              "name_en",
+              "name_zh_tw",
+              "other_terms_en",
+              "other_terms_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_in_selects",
+              "stockit_id",
+              "location_id",
+              "allow_requests",
+              "allow_stock",
+              "allow_pieces",
+              "subform",
+              "allow_box",
+              "allow_pallet",
+              "default_value_hk_dollar",
+              "allow_expiry_date"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "code",
+              "name_en",
+              "name_zh_tw",
+              "other_terms_en",
+              "other_terms_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_in_selects",
+              "stockit_id",
+              "location_id",
+              "allow_requests",
+              "allow_stock",
+              "allow_pieces",
+              "subform",
+              "allow_box",
+              "allow_pallet",
+              "default_value_hk_dollar",
+              "allow_expiry_date"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "id",
+              "code",
+              "name_en",
+              "name_zh_tw",
+              "other_terms_en",
+              "other_terms_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_in_selects",
+              "stockit_id",
+              "location_id",
+              "allow_requests",
+              "allow_stock",
+              "allow_pieces",
+              "subform",
+              "allow_box",
+              "allow_pallet",
+              "default_value_hk_dollar",
+              "allow_expiry_date"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "code",
+              "name_en",
+              "name_zh_tw",
+              "other_terms_en",
+              "other_terms_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_in_selects",
+              "stockit_id",
+              "location_id",
+              "allow_requests",
+              "allow_stock",
+              "allow_pieces",
+              "subform",
+              "allow_box",
+              "allow_pallet",
+              "default_value_hk_dollar",
+              "allow_expiry_date"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "code",
+              "name_en",
+              "name_zh_tw",
+              "other_terms_en",
+              "other_terms_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_in_selects",
+              "stockit_id",
+              "location_id",
+              "allow_requests",
+              "allow_stock",
+              "allow_pieces",
+              "subform",
+              "allow_box",
+              "allow_pallet",
+              "default_value_hk_dollar",
+              "allow_expiry_date"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "code",
+              "name_en",
+              "name_zh_tw",
+              "other_terms_en",
+              "other_terms_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_in_selects",
+              "stockit_id",
+              "location_id",
+              "allow_requests",
+              "allow_stock",
+              "allow_pieces",
+              "subform",
+              "allow_box",
+              "allow_pallet",
+              "default_value_hk_dollar",
+              "allow_expiry_date"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "code",
+              "name_en",
+              "name_zh_tw",
+              "other_terms_en",
+              "other_terms_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_in_selects",
+              "stockit_id",
+              "location_id",
+              "allow_requests",
+              "allow_stock",
+              "allow_pieces",
+              "subform",
+              "allow_box",
+              "allow_pallet",
+              "default_value_hk_dollar",
+              "allow_expiry_date"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "code",
+              "name_en",
+              "name_zh_tw",
+              "other_terms_en",
+              "other_terms_zh_tw",
+              "created_at",
+              "updated_at",
+              "visible_in_selects",
+              "stockit_id",
+              "location_id",
+              "allow_requests",
+              "allow_stock",
+              "allow_pieces",
+              "subform",
+              "allow_box",
+              "allow_pallet",
+              "default_value_hk_dollar",
+              "allow_expiry_date"
+            ],
+            "filter": {},
+            "limit": 100
           }
         }
       ]
@@ -512,13 +3386,480 @@
             "foreign_key_constraint_on": "storage_type_id"
           }
         }
+      ],
+      "computed_fields": [
+        {
+          "name": "images",
+          "definition": {
+            "function": {
+              "schema": "public",
+              "name": "package_images"
+            }
+          },
+          "comment": ""
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "allow_web_publish",
+              "available_quantity",
+              "box_id",
+              "case_number",
+              "comment",
+              "created_at",
+              "designated_quantity",
+              "designation_name",
+              "detail_id",
+              "detail_type",
+              "dispatched_quantity",
+              "donor_condition_id",
+              "expiry_date",
+              "favourite_image_id",
+              "grade",
+              "height",
+              "id",
+              "inventory_number",
+              "item_id",
+              "length",
+              "location_id",
+              "notes",
+              "offer_id",
+              "on_hand_quantity",
+              "order_id",
+              "package_set_id",
+              "package_type_id",
+              "pallet_id",
+              "pieces",
+              "received_at",
+              "received_quantity",
+              "rejected_at",
+              "restriction_id",
+              "saleable",
+              "state",
+              "stockit_designated_by_id",
+              "stockit_designated_on",
+              "stockit_id",
+              "stockit_moved_by_id",
+              "stockit_moved_on",
+              "stockit_sent_by_id",
+              "stockit_sent_on",
+              "storage_type_id",
+              "updated_at",
+              "value_hk_dollar",
+              "weight",
+              "width"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "allow_web_publish",
+              "available_quantity",
+              "box_id",
+              "case_number",
+              "comment",
+              "created_at",
+              "designated_quantity",
+              "designation_name",
+              "detail_id",
+              "detail_type",
+              "dispatched_quantity",
+              "donor_condition_id",
+              "expiry_date",
+              "favourite_image_id",
+              "grade",
+              "height",
+              "id",
+              "inventory_number",
+              "item_id",
+              "length",
+              "location_id",
+              "notes",
+              "offer_id",
+              "on_hand_quantity",
+              "order_id",
+              "package_set_id",
+              "package_type_id",
+              "pallet_id",
+              "pieces",
+              "received_at",
+              "received_quantity",
+              "rejected_at",
+              "restriction_id",
+              "saleable",
+              "state",
+              "stockit_designated_by_id",
+              "stockit_designated_on",
+              "stockit_id",
+              "stockit_moved_by_id",
+              "stockit_moved_on",
+              "stockit_sent_by_id",
+              "stockit_sent_on",
+              "storage_type_id",
+              "updated_at",
+              "value_hk_dollar",
+              "weight",
+              "width"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "allow_web_publish",
+              "available_quantity",
+              "box_id",
+              "case_number",
+              "comment",
+              "created_at",
+              "designated_quantity",
+              "designation_name",
+              "detail_id",
+              "detail_type",
+              "dispatched_quantity",
+              "donor_condition_id",
+              "expiry_date",
+              "favourite_image_id",
+              "grade",
+              "height",
+              "id",
+              "inventory_number",
+              "item_id",
+              "length",
+              "location_id",
+              "notes",
+              "offer_id",
+              "on_hand_quantity",
+              "order_id",
+              "package_set_id",
+              "package_type_id",
+              "pallet_id",
+              "pieces",
+              "received_at",
+              "received_quantity",
+              "rejected_at",
+              "restriction_id",
+              "saleable",
+              "state",
+              "stockit_designated_by_id",
+              "stockit_designated_on",
+              "stockit_id",
+              "stockit_moved_by_id",
+              "stockit_moved_on",
+              "stockit_sent_by_id",
+              "stockit_sent_on",
+              "storage_type_id",
+              "updated_at",
+              "value_hk_dollar",
+              "weight",
+              "width"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "allow_web_publish",
+              "available_quantity",
+              "box_id",
+              "case_number",
+              "comment",
+              "created_at",
+              "designated_quantity",
+              "designation_name",
+              "detail_id",
+              "detail_type",
+              "dispatched_quantity",
+              "donor_condition_id",
+              "expiry_date",
+              "favourite_image_id",
+              "grade",
+              "height",
+              "id",
+              "inventory_number",
+              "item_id",
+              "length",
+              "location_id",
+              "notes",
+              "offer_id",
+              "on_hand_quantity",
+              "order_id",
+              "package_set_id",
+              "package_type_id",
+              "pallet_id",
+              "pieces",
+              "received_at",
+              "received_quantity",
+              "rejected_at",
+              "restriction_id",
+              "saleable",
+              "state",
+              "stockit_designated_by_id",
+              "stockit_designated_on",
+              "stockit_id",
+              "stockit_moved_by_id",
+              "stockit_moved_on",
+              "stockit_sent_by_id",
+              "stockit_sent_on",
+              "storage_type_id",
+              "updated_at",
+              "value_hk_dollar",
+              "weight",
+              "width"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "allow_web_publish",
+              "available_quantity",
+              "box_id",
+              "case_number",
+              "comment",
+              "created_at",
+              "designated_quantity",
+              "designation_name",
+              "detail_id",
+              "detail_type",
+              "dispatched_quantity",
+              "donor_condition_id",
+              "expiry_date",
+              "favourite_image_id",
+              "grade",
+              "height",
+              "id",
+              "inventory_number",
+              "item_id",
+              "length",
+              "location_id",
+              "notes",
+              "offer_id",
+              "on_hand_quantity",
+              "order_id",
+              "package_set_id",
+              "package_type_id",
+              "pallet_id",
+              "pieces",
+              "received_at",
+              "received_quantity",
+              "rejected_at",
+              "restriction_id",
+              "saleable",
+              "state",
+              "stockit_designated_by_id",
+              "stockit_designated_on",
+              "stockit_id",
+              "stockit_moved_by_id",
+              "stockit_moved_on",
+              "stockit_sent_by_id",
+              "stockit_sent_on",
+              "storage_type_id",
+              "updated_at",
+              "value_hk_dollar",
+              "weight",
+              "width"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "allow_web_publish",
+              "available_quantity",
+              "box_id",
+              "case_number",
+              "comment",
+              "created_at",
+              "designated_quantity",
+              "designation_name",
+              "detail_id",
+              "detail_type",
+              "dispatched_quantity",
+              "donor_condition_id",
+              "expiry_date",
+              "favourite_image_id",
+              "grade",
+              "height",
+              "id",
+              "inventory_number",
+              "item_id",
+              "length",
+              "location_id",
+              "notes",
+              "offer_id",
+              "on_hand_quantity",
+              "order_id",
+              "package_set_id",
+              "package_type_id",
+              "pallet_id",
+              "pieces",
+              "received_at",
+              "received_quantity",
+              "rejected_at",
+              "restriction_id",
+              "saleable",
+              "state",
+              "stockit_designated_by_id",
+              "stockit_designated_on",
+              "stockit_id",
+              "stockit_moved_by_id",
+              "stockit_moved_on",
+              "stockit_sent_by_id",
+              "stockit_sent_on",
+              "storage_type_id",
+              "updated_at",
+              "value_hk_dollar",
+              "weight",
+              "width"
+            ],
+            "filter": {
+              "deleted_at": {
+                "_is_null": true
+              }
+            },
+            "limit": 25
+          }
+        }
       ]
     },
     {
       "table": {
         "schema": "public",
         "name": "permissions"
-      }
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        },
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "name",
+              "created_at",
+              "updated_at"
+            ],
+            "filter": {},
+            "limit": 100
+          }
+        }
+      ]
     },
     {
       "table": {
@@ -566,6 +3907,98 @@
                 "user_id": "id"
               }
             }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "printer_id",
+              "user_id",
+              "tag"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "order_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "printer_id",
+              "user_id",
+              "tag"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "reviewer",
+          "permission": {
+            "columns": [
+              "id",
+              "printer_id",
+              "user_id",
+              "tag"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "printer_id",
+              "user_id",
+              "tag"
+            ],
+            "filter": {},
+            "limit": 25
+          }
+        },
+        {
+          "role": "stock_fulfilment",
+          "permission": {
+            "columns": [
+              "id",
+              "printer_id",
+              "user_id",
+              "tag"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 25
+          }
+        },
+        {
+          "role": "supervisor",
+          "permission": {
+            "columns": [
+              "id",
+              "printer_id",
+              "user_id",
+              "tag"
+            ],
+            "filter": {},
+            "limit": 25
           }
         }
       ]

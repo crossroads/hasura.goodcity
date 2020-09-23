@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha specs/*.test.js specs/**/*.test.js --file specs/setup.js --file specs/teardown.js",
-    "test:snapshot": "mocha specs/*.test.js specs/**/*.test.js --file specs/setup.js --file specs/teardown.js --snapshot",
+    "test:fast": "mocha specs/*.test.js specs/**/*.test.js --file specs/setup.js --file specs/teardown.js --bail",
+    "test:update": "mocha specs/*.test.js specs/**/*.test.js --file specs/setup.js --file specs/teardown.js --update-snapshot",
+    "test:update:fast": "mocha specs/*.test.js specs/**/*.test.js --file specs/setup.js --file specs/teardown.js --update-snapshot --bail",
     "hasura:config": "cat ./specs/snapshots/hasura_config.snapshot.json"
   },
   "repository": {

@@ -37,7 +37,7 @@ before(async () => {
 // ----------------
 
 before(() => {
-  if (_.find(process.argv, (arg) => arg === '--snapshot')) {
+  if (_.find(process.argv, (arg) => arg === '--update-snapshot')) {
     createSnapshot();
   }
 })

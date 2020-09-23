@@ -45,12 +45,29 @@ function hasRelationship(tableName, relationship) {
   return !!getRelationship(tableName, relationship);
 }
 
+function getAccessRule(tableName, roleName) {
+  const { select_permissions } = getSchemaInfo(tableName)
+  return _.find(select_permissions, ['role', roleName]);
+}
+
+function hasAccessRule(tableName, roleName) {
+  return !!getAccessRule(tableName, roleName);
+}
+
+function getComputedFields(tableName) {
+  const { computed_fields = [] } = getSchemaInfo(tableName);
+  return computed_fields;
+}
+
 module.exports = {
   preload,
   getSchemaInfo,
   getAllRelationships,
   getRelationship,
   hasRelationship,
+  getAccessRule,
+  hasAccessRule,
+  getComputedFields,
 
   get meta() {
     return meta;
