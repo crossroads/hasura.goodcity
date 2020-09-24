@@ -1,6 +1,6 @@
 # hasura.goodcity
 
-Deployment and testing of the Hasura GraphQL server
+Deployment and testing of the Hasura GraphQL server in the context of the Goodcity project
 
 ## Development
 

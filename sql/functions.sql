@@ -26,7 +26,7 @@ AS $function$
     )
 $function$;
 
-CREATE OR REPLACE FUNCTION public.item_images(package_row packages)
+CREATE OR REPLACE FUNCTION public.package_images(package_row packages)
  RETURNS SETOF images
  LANGUAGE sql
  STABLE
