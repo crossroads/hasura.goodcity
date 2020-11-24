@@ -364,6 +364,31 @@
     {
       "table": {
         "schema": "public",
+        "name": "companies"
+      },
+      "select_permissions": [
+        {
+          "role": "order_administrator",
+          "permission": {
+            "columns": [
+              "id",
+              "name",
+              "crm_id",
+              "created_by_id",
+              "created_at",
+              "updated_at",
+              "updated_by_id"
+            ],
+            "filter": {},
+            "limit": 25,
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "public",
         "name": "contacts"
       }
     },
@@ -1800,7 +1825,6 @@
               "id",
               "building",
               "area",
-              "stockit_id",
               "created_at",
               "updated_at"
             ],
@@ -1815,7 +1839,6 @@
               "id",
               "building",
               "area",
-              "stockit_id",
               "created_at",
               "updated_at"
             ],
@@ -1830,7 +1853,6 @@
               "id",
               "building",
               "area",
-              "stockit_id",
               "created_at",
               "updated_at"
             ],
@@ -1845,7 +1867,6 @@
               "id",
               "building",
               "area",
-              "stockit_id",
               "created_at",
               "updated_at"
             ],
@@ -1860,7 +1881,6 @@
               "id",
               "building",
               "area",
-              "stockit_id",
               "created_at",
               "updated_at"
             ],
@@ -1875,7 +1895,6 @@
               "id",
               "building",
               "area",
-              "stockit_id",
               "created_at",
               "updated_at"
             ],
@@ -3131,7 +3150,6 @@
               "created_at",
               "updated_at",
               "visible_in_selects",
-              "stockit_id",
               "location_id",
               "allow_requests",
               "allow_stock",
@@ -3159,7 +3177,6 @@
               "created_at",
               "updated_at",
               "visible_in_selects",
-              "stockit_id",
               "location_id",
               "allow_requests",
               "allow_stock",
@@ -3187,7 +3204,6 @@
               "created_at",
               "updated_at",
               "visible_in_selects",
-              "stockit_id",
               "location_id",
               "allow_requests",
               "allow_stock",
@@ -3215,7 +3231,6 @@
               "created_at",
               "updated_at",
               "visible_in_selects",
-              "stockit_id",
               "location_id",
               "allow_requests",
               "allow_stock",
@@ -3243,7 +3258,6 @@
               "created_at",
               "updated_at",
               "visible_in_selects",
-              "stockit_id",
               "location_id",
               "allow_requests",
               "allow_stock",
@@ -3271,7 +3285,6 @@
               "created_at",
               "updated_at",
               "visible_in_selects",
-              "stockit_id",
               "location_id",
               "allow_requests",
               "allow_stock",
@@ -3299,7 +3312,6 @@
               "created_at",
               "updated_at",
               "visible_in_selects",
-              "stockit_id",
               "location_id",
               "allow_requests",
               "allow_stock",
@@ -3327,7 +3339,6 @@
               "created_at",
               "updated_at",
               "visible_in_selects",
-              "stockit_id",
               "location_id",
               "allow_requests",
               "allow_stock",
@@ -3441,7 +3452,6 @@
               "state",
               "stockit_designated_by_id",
               "stockit_designated_on",
-              "stockit_id",
               "stockit_moved_by_id",
               "stockit_moved_on",
               "stockit_sent_by_id",
@@ -3501,7 +3511,6 @@
               "state",
               "stockit_designated_by_id",
               "stockit_designated_on",
-              "stockit_id",
               "stockit_moved_by_id",
               "stockit_moved_on",
               "stockit_sent_by_id",
@@ -3561,7 +3570,6 @@
               "state",
               "stockit_designated_by_id",
               "stockit_designated_on",
-              "stockit_id",
               "stockit_moved_by_id",
               "stockit_moved_on",
               "stockit_sent_by_id",
@@ -3621,7 +3629,6 @@
               "state",
               "stockit_designated_by_id",
               "stockit_designated_on",
-              "stockit_id",
               "stockit_moved_by_id",
               "stockit_moved_on",
               "stockit_sent_by_id",
@@ -3681,7 +3688,6 @@
               "state",
               "stockit_designated_by_id",
               "stockit_designated_on",
-              "stockit_id",
               "stockit_moved_by_id",
               "stockit_moved_on",
               "stockit_sent_by_id",
@@ -3741,7 +3747,6 @@
               "state",
               "stockit_designated_by_id",
               "stockit_designated_on",
-              "stockit_id",
               "stockit_moved_by_id",
               "stockit_moved_on",
               "stockit_sent_by_id",
