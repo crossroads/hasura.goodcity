@@ -2043,7 +2043,7 @@
                 "_eq": "X-Hasura-User-Id"
               }
             },
-            "limit": 25
+            "limit": 1000
           }
         },
         {
@@ -2085,7 +2085,7 @@
                 "_eq": "X-Hasura-User-Id"
               }
             },
-            "limit": 25
+            "limit": 1000
           }
         },
         {
@@ -2123,7 +2123,7 @@
               "company_id"
             ],
             "filter": {},
-            "limit": 25
+            "limit": 1000
           }
         },
         {
@@ -2165,7 +2165,7 @@
                 "_eq": "X-Hasura-User-Id"
               }
             },
-            "limit": 25
+            "limit": 1000
           }
         },
         {
@@ -2207,7 +2207,7 @@
                 "_eq": "X-Hasura-User-Id"
               }
             },
-            "limit": 25
+            "limit": 1000
           }
         },
         {
@@ -2245,7 +2245,7 @@
               "company_id"
             ],
             "filter": {},
-            "limit": 25
+            "limit": 1000
           }
         },
         {
@@ -2287,7 +2287,7 @@
                 "_eq": "X-Hasura-User-Id"
               }
             },
-            "limit": 25
+            "limit": 1000
           }
         }
       ]

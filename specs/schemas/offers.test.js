@@ -54,8 +54,8 @@ describe("Offer schema", () => {
           ])
         });
 
-        it('only allows me to read 25 records at a time', () => {
-          expectAccessRule(TABLE_NAME, role).to.have.a.limitOf(25)
+        it('only allows me to read 1000 records at a time', () => {
+          expectAccessRule(TABLE_NAME, role).to.have.a.limitOf(1000)
         })
       });
     });
@@ -68,8 +68,8 @@ describe("Offer schema", () => {
         expectAccessRule(TABLE_NAME, ROLE).to.be.unfiltered;
       });
 
-      it('only allows me to read 25 records at a time', () => {
-        expectAccessRule(TABLE_NAME, ROLE).to.have.a.limitOf(25)
+      it('only allows me to read 1000 records at a time', () => {
+        expectAccessRule(TABLE_NAME, ROLE).to.have.a.limitOf(1000)
       })
     });
 
@@ -81,8 +81,8 @@ describe("Offer schema", () => {
         expectAccessRule(TABLE_NAME, ROLE).to.be.unfiltered;
       });
 
-      it('only allows me to read 25 records at a time', () => {
-        expectAccessRule(TABLE_NAME, ROLE).to.have.a.limitOf(25)
+      it('only allows me to read 1000 records at a time', () => {
+        expectAccessRule(TABLE_NAME, ROLE).to.have.a.limitOf(1000)
       })
     });
   });
